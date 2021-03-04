@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+<h1>Projects</h1>
+<div class="row">
+{% for video in videos %}
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <div class="card-body">
+                <h5 class="card-title">{{ video.title }}</h5>
+                <p class="card-text">{{ video.description }}</p>
+                <a href="{% url 'video_detail' video.id %}"
+                   class="btn btn-primary">
+                    Read More
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

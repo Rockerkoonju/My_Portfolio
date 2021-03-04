@@ -11,9 +11,12 @@
         <h5>About the project:</h5>
         <p>{{ video.description }}</p>
         <br>
-        <h5>Technology used:</h5>
-        <p>{{ video.categories }}</p>
-        <p>{{ video.channel }}</p>
+        {% for category in video.categories.all %}
+        <a href=#>
+            {{ category.Category_name }}
+            {{ video.title }}
+        </a>&nbsp;
+        {% endfor %}
     </div>
 </div>
 {% endblock %}
