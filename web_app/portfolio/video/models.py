@@ -25,4 +25,4 @@ class Video(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.title + " | " + self.id
+        return self.title + " | " + str(self.id)
