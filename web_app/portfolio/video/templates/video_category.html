@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block page_content %}
+<div class="col-md-8 offset-md-2">
+    <h1>{{ category | title }}</h1>
+    <hr>
+    {% for video in videos %}
+        <h2><a href="{% url 'video_detail' video.id%}">{{ video.title }}</a></h2>
+        <small>
+            {{ video.created_on.date }} |&nbsp;
+            Categories:&nbsp;
+            {% for category in video.categories.all %}
+            <a href="{% url 'video_category' category.Category_name %}">
+                {{ category.name }}
+            </a>&nbsp;
+            {% endfor %}
+        </small>
+        <p>{{ video.body | slice:":400" }}...</p>
+    {% endfor %}
+</div>
+{% endblock %}

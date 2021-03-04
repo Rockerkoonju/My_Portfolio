@@ -11,10 +11,14 @@
         <h5>About the project:</h5>
         <p>{{ video.description }}</p>
         <br>
+        <h5>Create On:</h5>
+        <p>{{ video.created_on.date }} &nbsp;
+        </p>
+        <br>
+        <h5>Categories:</h5>
         {% for category in video.categories.all %}
-        <a href=#>
+        <a href="{% url 'video_category' category.Category_name %}">
             {{ category.Category_name }}
-            {{ video.title }}
         </a>&nbsp;
         {% endfor %}
     </div>

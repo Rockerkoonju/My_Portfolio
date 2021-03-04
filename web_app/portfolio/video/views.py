@@ -19,14 +19,15 @@ def video_detail(request, id):
 
     return render(request, "video_detail.html", context)
 
-def blog_category(request, category):
+
+def video_category(request, Category):
     videos = Video.objects.filter(
-        categories__name__contains=category
+        categories__name__contains=Category
     ).order_by(
         '-created_on'
     )
     context = {
-        "category": category,
+        "category": Category,
         "videos": videos
     }
     return render(request, "video_category.html", context)

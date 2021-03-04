@@ -5,4 +5,5 @@ urlpatterns = [
     path('', views.home),
     path("videos/", views.video_index, name="video_index"),
     path("videos/<int:id>/", views.video_detail, name="video_detail"),
+    path("<category>/", views.video_category, name="video_category"),
 ]
